@@ -14,9 +14,9 @@ resource "aws_instance" "frontend" {
 
   tags = {
     Name = "frontend"
-
   }
 }
+
 resource "aws_route53_record" "frontend" {
   zone_id = "Z06377673P2QZ3HGG0TOY"
   name    = "frontend.madhari123.shop"
