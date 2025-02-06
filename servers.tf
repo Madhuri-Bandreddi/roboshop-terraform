@@ -21,6 +21,6 @@ resource "aws_route53_record" "frontend" {
   zone_id = "Z06377673P2QZ3HGG0TOY"
   name    = "frontend.madhari123.shop"
   type    = "A"
-  tt1     = 30
+  ttl     = 30
   records = [aws_instance.frontend.private_ip]
 }
