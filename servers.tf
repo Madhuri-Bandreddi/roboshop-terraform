@@ -24,3 +24,4 @@ resource "aws_route53_record" "frontend" {
   ttl     = 30
   records = [aws_instance.frontend.private_ip]
 }
+
