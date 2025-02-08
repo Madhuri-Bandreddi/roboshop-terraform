@@ -6,8 +6,8 @@ data "aws_ami" "centos" {
 
 #data "aws_security_group" "launch-wizard-16" {
  # name = "launch-wizard-16"
-data "aws_security_group" "allow_all" {
-   name = "allow_all"
+data "aws_security_group" "allow_all1" {
+   name = "allow_all1"
 }
 
 variable "components" {
@@ -27,7 +27,7 @@ resource "aws_instance" "instance" {
   ami                    = data.aws_ami.centos.image_id
   instance_type          = each.value["instance_type"]
   # vpc_security_group_ids = [ data.aws_security_group.launch-wizard-16.id ]
-  vpc_security_group_ids = [ data.aws_security_group.allow_all.id ]
+  vpc_security_group_ids = [ data.aws_security_group.allow_all1.id ]
 
   tags = {
     Name = each.value["name"]
