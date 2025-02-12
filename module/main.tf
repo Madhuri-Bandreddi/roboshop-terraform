@@ -23,13 +23,12 @@ resource "null_resource" "provisioner" {
 
     inline = [
       "rm -rf roboshop-shell",
-      "git clone https://github.com/raghudevopsb72/roboshop-shell",
+      "git clone https://github.com/Madhuri-Bandreddi/roboshop-terraform.git",
       "cd roboshop-shell",
       "sudo bash ${var.component_name}.sh ${var.password}"
     ]
   }
 }
-
 
 resource "aws_route53_record" "records" {
   zone_id = "Z03986262CQPCHNJNZM9L"
