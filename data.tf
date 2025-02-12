@@ -5,5 +5,5 @@ data "aws_ami" "centos" {
 }
 
 data "aws_security_group" "allow_all1" {
-  name = "allow_all1"
+  name = "default VPC security group"
 }
