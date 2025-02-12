@@ -1,6 +1,5 @@
 terraform {
-  backend "s3" {
-  }
+  backend "s3" {}
 }
     # bucket = "terraform-r72"
     # key    = "roboshop/dev/terraform.tfstate"
