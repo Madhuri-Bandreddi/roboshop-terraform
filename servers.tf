@@ -6,7 +6,6 @@ resource "aws_instance" "instance" {
 
   tags = {
     Name = each.value["name"]
-    # Name = var.env != "" ? "${var.component_name}-${var.env}" : var.component_name
   }
 }
 
@@ -17,7 +16,7 @@ resource "null_resource" "provisioner" {
 
     connection {
       type     = "ssh"
-      user     = "centos"
+      user     = "root"
       password = "DevOps321"
       host     = aws_instance.instance[each.value["name"]].pravate_ip
     }
@@ -32,6 +31,7 @@ resource "null_resource" "provisioner" {
 }
 
 resource "aws_route53_record" "records" {
+  for_each               = var.components
   zone_id = "Z03986262CQPCHNJNZM9L"
   name     = "${each.value["name"]}-dev.rdevopsb72.online"
   type     = "A"
